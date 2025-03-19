@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+        <!-- Héritage de la vue de formulaire pour la commande d'achat -->
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Ajout des champs dans la vue des lignes de commande -->
+                <xpath expr="//field[@name='order_line']" position="inside">
+                    <tree editable="bottom">
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="longueur"/>
+                        <field name="largeur"/>
+                        <field name="volume"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
